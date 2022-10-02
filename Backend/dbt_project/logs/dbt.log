@@ -2049,3 +2049,273 @@ There are 1 unused configuration paths:
 [0m05:27:15.945287 [warn ] [MainThread]: [[33mWARNING[0m]: Nothing to do. Try checking your model configs and model specification args
 [0m05:27:15.949292 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002148DA83370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002148DA83CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002148DCE4AC0>]}
 [0m05:27:15.949792 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2022-10-02 05:30:35.800655 | d214812c-0dae-482f-89a5-7a531f1db0a9 ==============================
+[0m05:30:35.800655 [info ] [MainThread]: Running with dbt=1.2.1
+[0m05:30:35.801154 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\Javie\\.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+[0m05:30:35.801154 [debug] [MainThread]: Tracking: tracking
+[0m05:30:35.828652 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973A93B80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973A93610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973A93970>]}
+[0m05:30:35.886154 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m05:30:35.886665 [debug] [MainThread]: Partial parsing: update schema file: dbt_project://models\schema.yml
+[0m05:30:35.915152 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_project.example
+
+[0m05:30:35.920154 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd214812c-0dae-482f-89a5-7a531f1db0a9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973A8E280>]}
+[0m05:30:35.925154 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd214812c-0dae-482f-89a5-7a531f1db0a9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973BC9E80>]}
+[0m05:30:35.925654 [info ] [MainThread]: Found 2 models, 0 tests, 0 snapshots, 0 analyses, 256 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+[0m05:30:35.925654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd214812c-0dae-482f-89a5-7a531f1db0a9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973BC9760>]}
+[0m05:30:35.926654 [info ] [MainThread]: 
+[0m05:30:35.927154 [debug] [MainThread]: Acquiring new postgres connection "master"
+[0m05:30:35.928152 [debug] [ThreadPool]: Acquiring new postgres connection "list_PizzaDB"
+[0m05:30:35.934153 [debug] [ThreadPool]: Using postgres connection "list_PizzaDB"
+[0m05:30:35.934153 [debug] [ThreadPool]: On list_PizzaDB: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "connection_name": "list_PizzaDB"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m05:30:35.934653 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:30:36.159234 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.23 seconds
+[0m05:30:36.160244 [debug] [ThreadPool]: On list_PizzaDB: Close
+[0m05:30:36.161244 [debug] [ThreadPool]: Acquiring new postgres connection "list_PizzaDB_pizza"
+[0m05:30:36.165201 [debug] [ThreadPool]: Using postgres connection "list_PizzaDB_pizza"
+[0m05:30:36.165201 [debug] [ThreadPool]: On list_PizzaDB_pizza: BEGIN
+[0m05:30:36.165701 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:30:36.312347 [debug] [ThreadPool]: SQL status: BEGIN in 0.15 seconds
+[0m05:30:36.312347 [debug] [ThreadPool]: Using postgres connection "list_PizzaDB_pizza"
+[0m05:30:36.312848 [debug] [ThreadPool]: On list_PizzaDB_pizza: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "connection_name": "list_PizzaDB_pizza"} */
+select
+      'PizzaDB' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'pizza'
+    union all
+    select
+      'PizzaDB' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'pizza'
+  
+[0m05:30:36.333453 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.02 seconds
+[0m05:30:36.334953 [debug] [ThreadPool]: On list_PizzaDB_pizza: ROLLBACK
+[0m05:30:36.349953 [debug] [ThreadPool]: On list_PizzaDB_pizza: Close
+[0m05:30:36.353456 [debug] [MainThread]: Using postgres connection "master"
+[0m05:30:36.353456 [debug] [MainThread]: On master: BEGIN
+[0m05:30:36.353957 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m05:30:36.525520 [debug] [MainThread]: SQL status: BEGIN in 0.17 seconds
+[0m05:30:36.525520 [debug] [MainThread]: Using postgres connection "master"
+[0m05:30:36.525520 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m05:30:36.557266 [debug] [MainThread]: SQL status: SELECT 3 in 0.03 seconds
+[0m05:30:36.558278 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd214812c-0dae-482f-89a5-7a531f1db0a9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973B6C8B0>]}
+[0m05:30:36.558278 [debug] [MainThread]: On master: ROLLBACK
+[0m05:30:36.573809 [debug] [MainThread]: Using postgres connection "master"
+[0m05:30:36.573809 [debug] [MainThread]: On master: BEGIN
+[0m05:30:36.607779 [debug] [MainThread]: SQL status: BEGIN in 0.03 seconds
+[0m05:30:36.607779 [debug] [MainThread]: On master: COMMIT
+[0m05:30:36.607779 [debug] [MainThread]: Using postgres connection "master"
+[0m05:30:36.607779 [debug] [MainThread]: On master: COMMIT
+[0m05:30:36.629572 [debug] [MainThread]: SQL status: COMMIT in 0.02 seconds
+[0m05:30:36.629572 [debug] [MainThread]: On master: Close
+[0m05:30:36.630588 [info ] [MainThread]: Concurrency: 1 threads (target='prod')
+[0m05:30:36.630588 [info ] [MainThread]: 
+[0m05:30:36.634034 [debug] [Thread-1  ]: Began running node model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth
+[0m05:30:36.634545 [info ] [Thread-1  ]: 1 of 2 START view model pizza.Vw_Large_Pepperoni_ByYearandMonth ................ [RUN]
+[0m05:30:36.635046 [debug] [Thread-1  ]: Acquiring new postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.635046 [debug] [Thread-1  ]: Began compiling node model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth
+[0m05:30:36.635046 [debug] [Thread-1  ]: Compiling model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth
+[0m05:30:36.637043 [debug] [Thread-1  ]: Writing injected SQL for node "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.638044 [debug] [Thread-1  ]: finished collecting timing info
+[0m05:30:36.638044 [debug] [Thread-1  ]: Began executing node model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth
+[0m05:30:36.664543 [debug] [Thread-1  ]: Writing runtime SQL for node "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.665543 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.666043 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: BEGIN
+[0m05:30:36.666043 [debug] [Thread-1  ]: Opening a new connection, currently in state init
+[0m05:30:36.812452 [debug] [Thread-1  ]: SQL status: BEGIN in 0.15 seconds
+[0m05:30:36.812452 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.812954 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"} */
+
+  create view "PizzaDB"."pizza"."Vw_Large_Pepperoni_ByYearandMonth__dbt_tmp" as (
+    SELECT
+	extract(YEAR from o.date) as year,
+	extract(month from o.date) as month_num,
+	to_char(o.date, 'Month') as month,
+	COUNT(distinct o.order_id) as totalOrders,
+	SUM(od.quantity) as quantity
+FROM
+    pizza.orders o
+        left join pizza.order_details od on o.order_id = od.order_id
+            left join pizza.pizzas pz on od.pizza_id = pz.pizza_id
+WHERE
+    0 = 0
+	AND pz.pizza_id = 'pepperoni_l'
+GROUP BY
+    extract(YEAR from o.date), extract(month from o.date),to_char(o.date, 'Month')
+ORDER BY
+    year, extract(month from o.date)
+
+
+---comments --update comments --More comments mmmmmoooreeeeeeee EVEN MOOOREEE
+  );
+[0m05:30:36.838449 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.03 seconds
+[0m05:30:36.842946 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.842946 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"} */
+alter table "PizzaDB"."pizza"."Vw_Large_Pepperoni_ByYearandMonth" rename to "Vw_Large_Pepperoni_ByYearandMonth__dbt_backup"
+[0m05:30:36.859243 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.02 seconds
+[0m05:30:36.860744 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.860744 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"} */
+alter table "PizzaDB"."pizza"."Vw_Large_Pepperoni_ByYearandMonth__dbt_tmp" rename to "Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.877472 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.02 seconds
+[0m05:30:36.889986 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: COMMIT
+[0m05:30:36.889986 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.889986 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: COMMIT
+[0m05:30:36.906953 [debug] [Thread-1  ]: SQL status: COMMIT in 0.02 seconds
+[0m05:30:36.910454 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"
+[0m05:30:36.910454 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth"} */
+drop view if exists "PizzaDB"."pizza"."Vw_Large_Pepperoni_ByYearandMonth__dbt_backup" cascade
+[0m05:30:36.926935 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.02 seconds
+[0m05:30:36.927938 [debug] [Thread-1  ]: finished collecting timing info
+[0m05:30:36.927938 [debug] [Thread-1  ]: On model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth: Close
+[0m05:30:36.928438 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd214812c-0dae-482f-89a5-7a531f1db0a9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973C74CA0>]}
+[0m05:30:36.928438 [info ] [Thread-1  ]: 1 of 2 OK created view model pizza.Vw_Large_Pepperoni_ByYearandMonth ........... [[32mCREATE VIEW[0m in 0.29s]
+[0m05:30:36.928938 [debug] [Thread-1  ]: Finished running node model.dbt_project.Vw_Large_Pepperoni_ByYearandMonth
+[0m05:30:36.929437 [debug] [Thread-1  ]: Began running node model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth
+[0m05:30:36.929437 [info ] [Thread-1  ]: 2 of 2 START view model pizza.Vw_Medium_Pepperoni_ByYearandMonth ............... [RUN]
+[0m05:30:36.929937 [debug] [Thread-1  ]: Acquiring new postgres connection "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:36.929937 [debug] [Thread-1  ]: Began compiling node model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth
+[0m05:30:36.930437 [debug] [Thread-1  ]: Compiling model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth
+[0m05:30:36.930937 [debug] [Thread-1  ]: Writing injected SQL for node "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:36.932436 [debug] [Thread-1  ]: finished collecting timing info
+[0m05:30:36.932436 [debug] [Thread-1  ]: Began executing node model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth
+[0m05:30:36.934437 [debug] [Thread-1  ]: Writing runtime SQL for node "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:36.935936 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:36.935936 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: BEGIN
+[0m05:30:36.935936 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m05:30:37.079660 [debug] [Thread-1  ]: SQL status: BEGIN in 0.14 seconds
+[0m05:30:37.079660 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:37.079660 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"} */
+
+  create view "PizzaDB"."pizza"."Vw_Medium_Pepperoni_ByYearandMonth__dbt_tmp" as (
+    SELECT
+	extract(YEAR from o.date) as year,
+	extract(month from o.date) as month_num,
+	to_char(o.date, 'Month') as month,
+	COUNT(distinct o.order_id) as totalOrders,
+	SUM(od.quantity) as quantity
+FROM
+    pizza.orders o
+        left join pizza.order_details od on o.order_id = od.order_id
+            left join pizza.pizzas pz on od.pizza_id = pz.pizza_id
+WHERE
+    0 = 0
+	AND pz.pizza_id = 'pepperoni_m'
+GROUP BY
+    extract(YEAR from o.date), extract(month from o.date),to_char(o.date, 'Month')
+ORDER BY
+    year, extract(month from o.date)
+  );
+[0m05:30:37.100744 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.02 seconds
+[0m05:30:37.102744 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:37.102744 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"} */
+alter table "PizzaDB"."pizza"."Vw_Medium_Pepperoni_ByYearandMonth__dbt_tmp" rename to "Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:37.117661 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.01 seconds
+[0m05:30:37.118661 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: COMMIT
+[0m05:30:37.118661 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:37.118661 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: COMMIT
+[0m05:30:37.134178 [debug] [Thread-1  ]: SQL status: COMMIT in 0.02 seconds
+[0m05:30:37.136178 [debug] [Thread-1  ]: Using postgres connection "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"
+[0m05:30:37.136178 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "dbt_project", "target_name": "prod", "node_id": "model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth"} */
+drop view if exists "PizzaDB"."pizza"."Vw_Medium_Pepperoni_ByYearandMonth__dbt_backup" cascade
+[0m05:30:37.151461 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.02 seconds
+[0m05:30:37.151960 [debug] [Thread-1  ]: finished collecting timing info
+[0m05:30:37.152459 [debug] [Thread-1  ]: On model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth: Close
+[0m05:30:37.152958 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd214812c-0dae-482f-89a5-7a531f1db0a9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973D09C70>]}
+[0m05:30:37.152958 [info ] [Thread-1  ]: 2 of 2 OK created view model pizza.Vw_Medium_Pepperoni_ByYearandMonth .......... [[32mCREATE VIEW[0m in 0.22s]
+[0m05:30:37.153458 [debug] [Thread-1  ]: Finished running node model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth
+[0m05:30:37.154460 [debug] [MainThread]: Acquiring new postgres connection "master"
+[0m05:30:37.154460 [debug] [MainThread]: Using postgres connection "master"
+[0m05:30:37.154460 [debug] [MainThread]: On master: BEGIN
+[0m05:30:37.154460 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m05:30:37.316581 [debug] [MainThread]: SQL status: BEGIN in 0.16 seconds
+[0m05:30:37.316581 [debug] [MainThread]: On master: COMMIT
+[0m05:30:37.317092 [debug] [MainThread]: Using postgres connection "master"
+[0m05:30:37.317092 [debug] [MainThread]: On master: COMMIT
+[0m05:30:37.335896 [debug] [MainThread]: SQL status: COMMIT in 0.02 seconds
+[0m05:30:37.335896 [debug] [MainThread]: On master: Close
+[0m05:30:37.336404 [info ] [MainThread]: 
+[0m05:30:37.336905 [info ] [MainThread]: Finished running 2 view models in 0 hours 0 minutes and 1.41 seconds (1.41s).
+[0m05:30:37.336905 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m05:30:37.337405 [debug] [MainThread]: Connection 'list_PizzaDB' was properly closed.
+[0m05:30:37.337405 [debug] [MainThread]: Connection 'list_PizzaDB_pizza' was properly closed.
+[0m05:30:37.337405 [debug] [MainThread]: Connection 'model.dbt_project.Vw_Medium_Pepperoni_ByYearandMonth' was properly closed.
+[0m05:30:37.343407 [info ] [MainThread]: 
+[0m05:30:37.343407 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m05:30:37.343906 [info ] [MainThread]: 
+[0m05:30:37.344404 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m05:30:37.344404 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973CFE4C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973CFE5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024973CFE460>]}
+[0m05:30:37.344905 [debug] [MainThread]: Flushing usage events

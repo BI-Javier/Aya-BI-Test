@@ -23,4 +23,15 @@ models:
         - name: month
           description: "Month of order date"
         - name: totalorders
-          description: "total orders of large pepperoni pizzas"
+          description: "total orders of medium pepperoni pizzas"
+  - name: Vw_Small_Pepperoni_ByYearandMonth
+    description: "Aggregates count of medium pepperoni orders by year and month of order date"
+    docs:
+      show: true
+    columns:
+      - name: year
+        description: "Year of order date"
+      - name: month
+        description: "Month of order date"
+      - name: totalorders
+        description: "total orders of small pepperoni pizzas"
