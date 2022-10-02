@@ -1,0 +1,15 @@
+
+version: 2
+
+models:
+  - name: Vw_Large_Pepperoni_ByYearandMonth
+    description: "Aggregates count of large pepperoni orders by year and month of order date"
+    docs:
+      show: true
+    columns:
+        - name: year
+          description: "Year of order date"
+        - name: month
+          description: "Month of order date"
+        - name: totalorders
+          description: "total orders of large pepperoni pizzas"
