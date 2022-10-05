@@ -1,6 +1,14 @@
 
 version: 2
 
+sources:
+  - name: pizza
+    tables:
+      - name: order_details
+      - name: orders
+      - name: pizza_types
+      - name: pizzas
+
 models:
   - name: Vw_Large_Pepperoni_ByYearandMonth
     description: "Aggregates count of large pepperoni orders by year and month of order date"

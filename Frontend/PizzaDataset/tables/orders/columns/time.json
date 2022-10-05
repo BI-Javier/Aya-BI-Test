@@ -1,0 +1,18 @@
+{
+  "name": "time",
+  "dataType": "dateTime",
+  "sourceColumn": "time",
+  "formatString": "Long Time",
+  "lineageTag": "622a7efe-e9a0-4b60-81b4-c1c41648d77e",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Time"
+    }
+  ]
+}

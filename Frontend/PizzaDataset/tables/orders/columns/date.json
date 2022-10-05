@@ -1,0 +1,29 @@
+{
+  "name": "date",
+  "dataType": "dateTime",
+  "sourceColumn": "date",
+  "formatString": "Long Date",
+  "lineageTag": "863de576-5e62-4e52-9f89-dc7ceb440f6f",
+  "summarizeBy": "none",
+  "variations": [
+    {
+      "name": "Variation",
+      "relationship": "a8a5f8af-b2d3-4436-bf6e-49b69b3e3dfc",
+      "defaultHierarchy": {
+        "table": "LocalDateTable_60353912-842a-4371-a0df-746ffbb18d36",
+        "hierarchy": "Date Hierarchy"
+      },
+      "isDefault": true
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

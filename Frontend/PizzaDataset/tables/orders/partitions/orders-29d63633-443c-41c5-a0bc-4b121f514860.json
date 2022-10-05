@@ -1,0 +1,15 @@
+{
+  "name": "orders-29d63633-443c-41c5-a0bc-4b121f514860",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "    Source = Csv.Document(File.Contents(\"C:\\Users\\Javie\\Desktop\\Projects\\archive\\orders.csv\"),[Delimiter=\",\", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+      "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+      "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"order_id\", Int64.Type}, {\"date\", type date}, {\"time\", type time}})",
+      "in",
+      "    #\"Changed Type\""
+    ]
+  }
+}

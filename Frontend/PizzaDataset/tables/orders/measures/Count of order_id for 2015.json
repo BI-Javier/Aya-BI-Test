@@ -1,0 +1,25 @@
+{
+  "name": "Count of order_id for 2015",
+  "expression": [
+    "",
+    "CALCULATE(COUNTA('orders'[order_id]), 'orders'[date].[Year] IN { 2015 })"
+  ],
+  "formatString": "0",
+  "lineageTag": "44873d24-f425-4841-b158-c854c2d38158",
+  "extendedProperties": [
+    {
+      "type": "json",
+      "name": "MeasureTemplate",
+      "value": {
+        "version": 0,
+        "daxTemplateName": "FilteredMeasure"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "name": "PBI_ChangedProperties",
+      "value": "[\"FormatString\"]"
+    }
+  ]
+}

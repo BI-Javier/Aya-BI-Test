@@ -1,0 +1,25 @@
+{
+  "name": "orders",
+  "lineageTag": "458d0bef-0cf8-44a0-8af3-f692b42c5c3f",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    },
+    {
+      "name": "TabularEditor_Relationships",
+      "value": [
+        "[",
+        "  {",
+        "    \"name\": \"a8a5f8af-b2d3-4436-bf6e-49b69b3e3dfc\",",
+        "    \"fromTable\": \"orders\",",
+        "    \"fromColumn\": \"date\",",
+        "    \"toTable\": \"LocalDateTable_60353912-842a-4371-a0df-746ffbb18d36\",",
+        "    \"toColumn\": \"Date\",",
+        "    \"joinOnDateBehavior\": \"datePartOnly\"",
+        "  }",
+        "]"
+      ]
+    }
+  ]
+}
