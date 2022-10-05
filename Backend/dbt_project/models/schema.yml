@@ -54,3 +54,10 @@ models:
         description: "date of order"
       - name: time
         description: "time of order"
+  - name: Vw_Count_AllHawaiianPizzaOrders
+    description: "Count of all hawaiian pizzas"
+    docs:
+      show: true
+    columns:
+      -name: CountOfPizzas
+      description: "Count of all hawaiian pizzas"
