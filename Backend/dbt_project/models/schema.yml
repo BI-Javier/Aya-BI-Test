@@ -35,3 +35,14 @@ models:
         description: "Month of order date"
       - name: totalorders
         description: "total orders of small pepperoni pizzas"
+  - name: Vw_All_Hawaiian_Orders
+    description: "All hawaiian orders"
+    docs:
+      show: true
+    columns:
+      - name: order_id
+        description: "Primary key of table"
+      - name: date
+        description: "date of order"
+      - name: time
+        description: "time of order"
